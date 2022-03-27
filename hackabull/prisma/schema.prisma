@@ -1,0 +1,15 @@
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["cockroachdb"]
+}
+
+model notes {
+      id        BigInt  @id @default(autoincrement())
+      dateTime  Datetime
+      note      String
+}
