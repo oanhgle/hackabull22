@@ -10,7 +10,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    // "strict": true,
+    "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -22,5 +23,5 @@
   },
   "include": [
     "src"
-  ]
+, "public/Button.js"  ]
 }
