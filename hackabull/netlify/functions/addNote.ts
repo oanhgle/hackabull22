@@ -10,9 +10,11 @@ interface noteEntry {
 const handler: Handler = async (event, context) => {
   if(event.body) {
     const newNote = JSON.parse(event.body) as noteEntry;
+    const time = new Date().toISOString();
     await prisma.note.create({
       data: {
-        notedesc: newNote
+        createdat: time,
+        notedesc: newNote.notedesc
       },
     });
 

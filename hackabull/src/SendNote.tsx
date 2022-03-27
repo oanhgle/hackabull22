@@ -98,7 +98,7 @@ export default function SendNote() {
       
     const sendNote = () => {
         const noteEntry = {
-            message: note
+            notedesc: note
         }
         fetch("/.netlify/functions/addNote",
             {
@@ -111,9 +111,11 @@ export default function SendNote() {
             })
             .then(function(res){
                 setMessage(`SEND: ${note}`);
+                console.log(`SEND: ${note}`);
             })
             .catch(function(res){
                 setMessage(`Unable to send note :(`);
+                console.log(`Unable to send note :(`);
             })
     }
     const HandleClick =()=> {
@@ -142,11 +144,11 @@ export default function SendNote() {
                         maxLength={300}
                         placeholder="share your message"
                         className="form-control"
-                        cols={40}
+                        cols={45}
                         />
                         <br></br>
                         <div className="custom-btn-group mt-4">
-                            <button className="button" onClick={() => HandleClick()} ref = {myButton}>
+                            <button className="button" type="submit" value="Submit" ref = {myButton}>
                                 <span className="default">Send</span>
                                 <span className="success">Sent!</span>
                                 <div className="left"></div>
