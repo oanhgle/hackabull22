@@ -1,10 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import { gsap } from "gsap";
 
-interface Note {
-    id: string,
-    note: string,
-}
 export default function SendNote() {
     const [note, setNote] = useState("");
     const [message, setMessage] = useState("");
@@ -98,13 +94,17 @@ export default function SendNote() {
       
     const sendNote = () => {
         const noteEntry = {
+            createdat: Date,
             notedesc: note
         }
         fetch("/.netlify/functions/addNote",
             {
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Accept': 'application/json'
                 },
                 method: "POST",
                 body: JSON.stringify(noteEntry)

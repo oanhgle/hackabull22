@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
 interface noteEntry {
+    createdat: Date,
     notedesc: string
 }
 

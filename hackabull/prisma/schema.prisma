@@ -8,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model note {
+model notes {
   id        BigInt    @id(map: "notes_pkey") @default(autoincrement())
   createdat DateTime? @db.Timestamp(6)
   notedesc  String
